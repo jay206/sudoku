@@ -47,16 +47,61 @@ namespace WebApplication3
 					if (!IsPostBack) {
 						img[i][j].ImageUrl = DefaultImage;
 					}
-					img[i][j].Click += new ImageClickEventHandler(_Default_Click);
+					((TableCell)img[i][j].Parent).BorderColor = Color.Black;
+
+					img[i][j].Click += new ImageClickEventHandler(Primary_Click);
 				}
 			}
 		}
 
-		void _Default_Click(object sender, ImageClickEventArgs e)
+		void Primary_Click(object sender, ImageClickEventArgs e)
 		{
 			((ImageButton)sender).ImageUrl = "one.png";
-			((TableCell)((ImageButton)sender).Parent).BorderColor = Color.Red;
+			//((TableCell)((ImageButton)sender).Parent).BorderColor = Color.Red;
+			//TableRow row = ((TableRow)((ImageButton)sender).Parent.Parent);
+
+			int r = tbl.Rows.GetRowIndex((TableRow)((ImageButton)sender).Parent.Parent);
+			RowIndex = r;
+			int c = tbl.Rows[r].Cells.GetCellIndex((TableCell)((ImageButton)sender).Parent);
+			ColumnIndex = c;
+
+			// show indication of row selection
+			for (int i = 0; i < Columns; i++) {
+				((TableCell)img[r][i].Parent).BorderColor = Color.Red;
+			}
+
+			// show indication of row selection
+			for (int i = 0; i < Rows; i++) {
+				((TableCell)img[i][c].Parent).BorderColor = Color.Red;
+			}
 		}
+		protected void Secondary_Click(object sender, ImageClickEventArgs e)
+		{
+			img[RowIndex][ColumnIndex].ImageUrl = ((ImageButton)sender).ImageUrl;
+		}
+		protected override void LoadViewState(object savedState)
+		{
+			if (savedState != null) {
+				object[] allState = (object[])savedState;
+				if (allState[0] != null)
+					base.LoadViewState(savedState);
+				if (allState[1] != null)
+					RowIndex = (int)allState[1];
+				if (allState[2] != null)
+					ColumnIndex = (int)allState[2];
+			}
+		}
+		protected override object SaveViewState()
+		{
+			object[] allState = new object[3];
+			allState[0] = base.SaveViewState();
+			allState[1] = RowIndex;
+			allState[2] = ColumnIndex;
+			return allState;
+		}
+		public int RowIndex { get; set; }
+		public int ColumnIndex { get; set; }
+
 		public string DefaultImage { get; set; }
 		public int Rows { get; set; }
 		public int Columns { get; set; }

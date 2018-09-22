@@ -47,7 +47,7 @@
 					<asp:ImageButton runat="server" id="ImageButton8" ImageUrl="eight.png" />
 				</td>
 				<td>
-					<asp:ImageButton runat="server" id="ImageButton9" ImageUrl="nine.png" />
+					<asp:ImageButton runat="server" id="ImageButton9" OnClick="Secondary_Click" ImageUrl="nine.png" />
 				</td>
 			</tr>
 		</table>
