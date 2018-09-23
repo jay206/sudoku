@@ -74,6 +74,17 @@ namespace WebApplication3
 			for (int i = 0; i < Rows; i++) {
 				((TableCell)img[i][c].Parent).BorderColor = Color.Red;
 			}
+
+			//int n = (Columns + Rows) / 2;
+		//	int r = 3;
+		//	int c = 3;
+			int rO = 3 * (RowIndex / 3);
+			int cO = 3 * (ColumnIndex / 3);
+			for (int i = 0; i < 3; i++) {
+				for (int j = 0; j < 3; j++) {
+					((TableCell)img[i+rO][j+cO].Parent).BorderColor = Color.Blue;
+				}
+			}
 		}
 		protected void Secondary_Click(object sender, ImageClickEventArgs e)
 		{
@@ -101,7 +112,7 @@ namespace WebApplication3
 		}
 		public int RowIndex { get; set; }
 		public int ColumnIndex { get; set; }
-
+		public int Count { get; set; }
 		public string DefaultImage { get; set; }
 		public int Rows { get; set; }
 		public int Columns { get; set; }
@@ -112,6 +123,23 @@ namespace WebApplication3
 	{
 		public CPathInfo()
 		{ 
+		}
+	}
+	public class CNode
+	{
+		public CNode()
+		{ 
+		}
+		public ImageButton Button { get; set; }
+		public string ImageUrl { get; set; }
+		public string DefaultUrl { get; set; }
+		public void Load()
+		{
+			this.Button.ImageUrl = ImageUrl;
+		}
+		public void Reset()
+		{
+			this.Button.ImageUrl = DefaultUrl;
 		}
 	}
 }

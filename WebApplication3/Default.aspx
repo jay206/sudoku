@@ -23,28 +23,28 @@
 		<table>
 			<tr>
 				<td>
-					<asp:ImageButton runat="server" id="ImageButton1" ImageUrl="one.png" />
+					<asp:ImageButton runat="server" id="ImageButton1" OnClick="Secondary_Click" ImageUrl="one.png" />
 				</td>
 				<td>
-					<asp:ImageButton runat="server" id="ImageButton2" ImageUrl="two.png" />
+					<asp:ImageButton runat="server" id="ImageButton2" OnClick="Secondary_Click" ImageUrl="two.png" />
 				</td>
 				<td>
-					<asp:ImageButton runat="server" id="ImageButton3" ImageUrl="three.png" />
+					<asp:ImageButton runat="server" id="ImageButton3" OnClick="Secondary_Click" ImageUrl="three.png" />
 				</td>
 				<td>
-					<asp:ImageButton runat="server" id="ImageButton4" ImageUrl="four.png" />
+					<asp:ImageButton runat="server" id="ImageButton4" OnClick="Secondary_Click" ImageUrl="four.png" />
 				</td>
 				<td>
-					<asp:ImageButton runat="server" id="ImageButton5" ImageUrl="five.png" />
+					<asp:ImageButton runat="server" id="ImageButton5" OnClick="Secondary_Click" ImageUrl="five.png" />
 				</td>
 				<td>
-					<asp:ImageButton runat="server" id="ImageButton6" ImageUrl="six.png" />
+					<asp:ImageButton runat="server" id="ImageButton6" OnClick="Secondary_Click" ImageUrl="six.png" />
 				</td>
 				<td>
-					<asp:ImageButton runat="server" id="ImageButton7" ImageUrl="seven.png" />
+					<asp:ImageButton runat="server" id="ImageButton7" OnClick="Secondary_Click" ImageUrl="seven.png" />
 				</td>
 				<td>
-					<asp:ImageButton runat="server" id="ImageButton8" ImageUrl="eight.png" />
+					<asp:ImageButton runat="server" id="ImageButton8" OnClick="Secondary_Click" ImageUrl="eight.png" />
 				</td>
 				<td>
 					<asp:ImageButton runat="server" id="ImageButton9" OnClick="Secondary_Click" ImageUrl="nine.png" />
